@@ -1,0 +1,14 @@
+---
+- name: working with delegate_to
+  hosts: ansi-server
+  tasks:
+    - name: this will help to execute the tasks in specific server
+      command: "uname -a"
+      delegate_to: client1
+      register: output
+
+    - debug: msg="{{output.stdout}}"
+
+    
+    - debug: msg="{{output}}"
+

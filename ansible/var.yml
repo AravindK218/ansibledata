@@ -1,0 +1,11 @@
+---
+- name: Working on vars module
+  hosts: all
+  vars:
+    - name: "VARS" 
+      tasks:
+        - name: Printing the content of a name module
+          command: echo"{{name}}"
+          register: output
+
+        - debug: msg="{{output}}"

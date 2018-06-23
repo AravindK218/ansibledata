@@ -1,0 +1,11 @@
+---
+- name: working with command module
+  hosts: all 
+  tasks:
+    - name: executing uname command
+      command: uname -a
+#This is a module. Designed to obtain the uname of linked machine
+#
+
+
+

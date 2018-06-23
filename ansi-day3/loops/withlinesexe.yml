@@ -1,0 +1,9 @@
+---
+- name: hello
+  hosts: ansi-server
+  tasks:
+    - name: working with with_lines
+      command: echo "{{item}}"
+      with_lines:
+        - "uname -a"
+        - "df -hT"

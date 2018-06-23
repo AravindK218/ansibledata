@@ -1,0 +1,12 @@
+---
+- name: working with ignore_errors
+  hosts: ansi-server
+  tasks:
+    - name: ignores that particular task when this ignore_errors is mentioned at that task
+      #    - name: task1
+      script: ./unknown.py
+      ignore_errors: true
+
+    - name: task2
+      script: echo "hello team"
+

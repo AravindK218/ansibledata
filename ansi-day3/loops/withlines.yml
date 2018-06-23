@@ -1,0 +1,14 @@
+---
+- name: working with with_lines
+  hosts: ansi-server
+  vars:
+    - var: output
+  tasks:
+    - name: it can execute multiple commands that are specified to it
+      command: echo "{{item}}"
+      with_lines:
+        - "uname -a"
+        - "df -hT"
+        - "uptime"
+      register: output
+    - debug: msg="{{ output }}"

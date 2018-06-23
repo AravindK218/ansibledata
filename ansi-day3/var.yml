@@ -1,0 +1,13 @@
+---
+- name: some data
+  hosts: all
+  tasks:
+    - name: using syntax-check 
+      command: echo "uname -a" >> /tmp/file10
+      with_items: [123.234.5556]
+
+    - name: some withlines
+      with_lines:
+        - "uptime"
+        - "df -hT"
+      command: echo "{{item}}"  

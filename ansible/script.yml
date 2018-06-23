@@ -1,0 +1,9 @@
+---
+- name: working with script module
+  hosts: ansi-server
+  tasks:
+    - name: using script module
+      script: ./for.py
+      register: output
+
+   

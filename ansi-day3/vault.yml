@@ -1,0 +1,8 @@
+---
+- name: working with vault
+  hosts: ansi-server
+  vars_files:
+    - db_password.yml
+  tasks:
+    - name: printing the db_pass value
+      command: echo "{{db_pass}}"

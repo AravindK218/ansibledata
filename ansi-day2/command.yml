@@ -1,0 +1,9 @@
+---
+- name: command.yml
+  hosts: test
+  tasks:
+    - name: executing command.yml
+      command: "uname -a"
+      command: "touch /tmp/file.txt"
+      register: output
+    - debug: msg="{{output.stdout}}"  

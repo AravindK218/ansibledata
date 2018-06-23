@@ -1,0 +1,11 @@
+---
+- name: working with variables
+  hosts: ansi-server 
+  vars_files:
+    - file.yml
+  tasks:
+    - name: printing the content of name variable
+      command: echo "{{servername}}"  
+
+
+

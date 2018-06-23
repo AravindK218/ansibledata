@@ -1,0 +1,6 @@
+---
+- name: testing data.yml
+  hosts: client1
+  tasks:
+    - name: test data
+      servername: "client1" 

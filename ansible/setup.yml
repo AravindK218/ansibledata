@@ -1,0 +1,8 @@
+---
+- name: Working with setup module
+  hosts: ansi-server
+  tasks:
+    - name: Omitting the ipv6 
+      setup: filter="ansible_default_ipv6"
+      register: output
+    - debug: msg="{{output}}"

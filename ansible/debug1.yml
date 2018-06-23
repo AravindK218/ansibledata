@@ -1,0 +1,15 @@
+---
+- name: task for script, debug & register modules
+  hosts: client2
+  tasks:
+    - name: test debug and register and debug modules
+      script: ./test.py
+      register: output
+
+    - debug: msg="{{output}}"
+
+    - debug: msg="{{output.stdout}}"
+
+    - debug: msg="{{output.stdout_lines[3]}}"
+
+

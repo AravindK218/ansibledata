@@ -1,0 +1,6 @@
+---
+- name: Working with group_vars
+  hosts: ansi-server
+  tasks:
+    - name: working with group.yml
+      command: echo"{{mygroup}}" 

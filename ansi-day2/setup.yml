@@ -1,0 +1,8 @@
+---
+- name: Working with setup module
+  hosts: ansi-server
+  tasks:
+    - name: printing the default ip address
+      setup: filter="ansible_default_ipv4"
+      register: output
+    - debug: msg="{{output}}"

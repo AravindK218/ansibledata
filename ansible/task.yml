@@ -1,0 +1,10 @@
+---
+- name: executing task
+  hosts: all
+  tasks:
+    - name: printing ip addresses of hosts group
+      setup: filter="ansible_default_ipv4"
+      register: output
+    - debug: msg="{{output.ansible_facts.ansible_default_ipv4.address}}"
+
+    - debug: msg="{{output.ansible_facts}}"  

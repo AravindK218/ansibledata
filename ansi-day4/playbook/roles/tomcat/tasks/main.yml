@@ -1,0 +1,17 @@
+---
+- name: redirecting
+  shell: cd /; cd /opt/Tomcat/
+  register: output
+- set_fact: status="{{output.stdout}}"
+
+- name: Installing Tomcat 
+  command: wget http://www-us.apache.org/dist/tomcat/tomcat-9/v9.0.8/bin/apache-tomcat-9.0.8.tar.gz
+  register: output
+- set_fact: ipaddress="{{output.stdout}}"
+
+- name: Changing the format
+  shell: tar xvf apache-tomcat-7.0.62.tar.gz; tar xvf apache-tomcat-7.0.62.tar.gz; ./bin/startup.sh
+  register: output
+- debug: status="{{output.stdout}}"
+
+# tasks file for tomcat

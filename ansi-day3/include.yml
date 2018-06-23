@@ -1,0 +1,4 @@
+---
+- name: Using include
+  include: var.yml
+  include: delegateto1.yml 

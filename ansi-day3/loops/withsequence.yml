@@ -1,0 +1,20 @@
+---
+- name: working with withsequence
+  hosts: ansi-server
+  tasks:
+    - name: withsequence will set a count range
+      command: echo "{{item}}"
+      with_sequence: count=2
+        #    count: start=1 end=3
+      register: output
+
+    - debug: msg="{{output}}"
+
+
+# - name: working with with_sequence
+#      command: echo "{{item}}"
+#      with_sequence: count=5
+#      register: output
+
+#   - debug: msg="{{output.stdout}}"
+      

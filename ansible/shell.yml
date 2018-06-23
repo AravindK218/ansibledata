@@ -1,0 +1,8 @@
+#Shell is to run multiple commands through a single playbook
+#
+---
+- name: module to run with different commands
+  hosts: all
+  tasks:
+    - name: running the uname -a and df -hT and uptime commands
+      shell: uname -a;df -hT;uptime

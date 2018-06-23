@@ -1,0 +1,8 @@
+---
+- name: working with serial command
+  hosts: all
+  serial: 2
+    #max_fail_percentage: 25
+  tasks:
+    - name: working in serial
+      command: "df -hT"

@@ -1,0 +1,7 @@
+---
+- name: working with with_dict
+  hosts: ansi-server
+  tasks:
+    - name: this will process any directory
+      command: echo "{{item.key}}=={{item.value}}"
+      with_dict: "{{ansible_default_ipv4}}"

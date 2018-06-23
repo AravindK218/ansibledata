@@ -1,0 +1,13 @@
+---
+- name: working with variables
+  hosts: ansi-server
+  vars_files:
+    - vars.yml
+
+  tasks:
+    - name: printing the content of name variable
+      register: output
+
+    - debug: msg="{{output}}"
+
+    - debug: msg="{{output.stdout_lines}}"

@@ -1,0 +1,24 @@
+---
+- name: working with when conditions
+  hosts: ansi-server
+  vars:
+    - val: 20
+  tasks:
+    - name: working with == operation
+      command: echo "Hi I am executing my == operation"
+      when: ansible_distribution == "Amazon"
+
+    - name: working with and operation
+      command: echo "Hi I am executing and operation"
+      when: (ansible_distribution == "Amazon") and (ansible_os_family == "Redhat")
+    - name: working with and operation
+      command: echo "Hi I am executing or operation"
+      when: (ansible_distribution == "Amazon") or (ansible_os_family == "Redhat")
+
+    - name: working with < and > operation
+      command: echo "my value of val is {{val}}"
+      when: (val <= 20) and (val >= 1)
+
+    - name: working with defined operation
+      command: echo "my variable value is {{myvariable}}"
+      when: myvariable is defined

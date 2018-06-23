@@ -1,0 +1,9 @@
+#creating a common file in all the machines at a specific location
+#
+---
+- name: Creating an empty file in multiple instances
+  hosts: all
+  tasks:
+    - name: Creating an empty file at /tmp/ location as data_file.txt
+      file: path="/tmp/data_file.txt" owner="ec2-user" group="root" mode=777 state=touch
+

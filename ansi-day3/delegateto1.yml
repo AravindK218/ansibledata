@@ -1,0 +1,7 @@
+---
+- name: somemore data
+  hosts: all
+  tasks:
+    - name: delegateto
+      command: "ps -ef"
+      delegate_to: ansi-server

@@ -1,0 +1,8 @@
+---
+- name: Working with fileglob
+  hosts: ansi-server
+  tasks:
+    - name: fileglob is to move files from a directory 
+      command: echo "{{item}}"
+      with_fileglob:
+        - "/tmp/*"

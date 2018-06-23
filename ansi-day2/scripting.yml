@@ -1,0 +1,19 @@
+---
+- name: Working with scripting module with python script
+  hosts: ansi-server
+  tasks:
+    - name: Using python code
+      script: ./f_sc.py
+      register: output
+
+    - debug: msg="{{output.stdout}}"
+
+      
+    - debug: msg="{{output.stdout_lines[3]}}"
+
+    - debug: msg="{{output.stdout_lines}}"
+
+    - set_fact: myvar="{{output.stdout_lines[0,5]}}"
+
+    - name: checking the value of myvar
+      command: echo"{{myvar}}"

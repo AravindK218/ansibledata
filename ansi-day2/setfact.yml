@@ -1,0 +1,9 @@
+---
+- name: set_Fact
+  hosts: ansi-server 
+  tasks:
+    - name: using set_fact  
+    - set_fact: one_fact="something" 
+      command: echo "{{one_fact}}"
+      registry: output
+

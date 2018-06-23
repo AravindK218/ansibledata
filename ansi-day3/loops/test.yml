@@ -1,0 +1,9 @@
+---
+- name: working with loops
+  hosts: ansi-server
+  tasks:
+    - name: working with with_lines
+      command: echo "{{item}}"
+      with_items:
+        - 1
+        - 2

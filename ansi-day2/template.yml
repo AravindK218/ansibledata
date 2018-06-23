@@ -1,0 +1,6 @@
+---
+- name: Working with template
+  hosts: ansi-server
+  tasks:
+    - name: Using template module
+      template: src="/tmp/mydir/file" dest="/tmp/" owner=root mode=555

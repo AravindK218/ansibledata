@@ -1,0 +1,10 @@
+---
+- name: working with ignore_errors
+  hosts: ansi-server
+  tasks:
+    - name: working with ignore_errors
+      script: ./myscript.py
+      ignore_errors: true
+
+    - name: working with ignore_errors
+      command: echo "Hi Team please be calm !!!!!@@@@@"

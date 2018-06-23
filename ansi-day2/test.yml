@@ -1,0 +1,9 @@
+---
+- name: Working on hosts_var 
+  hosts: ansi-server
+  host_vars:
+    - ansi-server.yml
+  tasks:
+    - name: Extracting data from /host_vars/ansi-server.yml
+      command: echo"{{Name}}"
+  

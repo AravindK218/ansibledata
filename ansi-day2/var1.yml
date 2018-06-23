@@ -1,0 +1,11 @@
+---
+- name: working with variables
+  hosts: ansi-server
+  vars:
+    - myval: "I am executing multiple commands"
+  tasks:
+    - name: printing the content of name variable
+      shell: echo"{{myval}}";cd /tmp/myfile;echo "This is my data" >> filetester
+      register: output
+
+    

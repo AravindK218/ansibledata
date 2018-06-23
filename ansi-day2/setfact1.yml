@@ -1,0 +1,25 @@
+---
+- hosts: localhost
+  tasks:
+  - name: set fact 1
+    set_fact: foo="['fdisk']"
+
+  - name: set fact 2
+    set_fact: foo="{{ foo }} + [ 'one' ]"
+
+  - name: set fact 3
+    set_fact: foo="{{ foo }} + [ 'two', 'three' ]"
+
+  - name: set fact 4
+    set_fact: foo="{{ foo }} + [ '{{ item }}' ]"
+    with_items:
+      - four
+      - five
+      - six
+  - name: set fact 5
+    set_fact: employee="['Aravind']"
+    register: output
+
+  - debug: var=foo
+   
+  - debug: var=employee

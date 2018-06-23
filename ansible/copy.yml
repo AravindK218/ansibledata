@@ -1,0 +1,8 @@
+#Copy module
+#
+---
+- name: Copying a file from a different location to different directory
+  hosts: all
+  tasks:
+    - name: Copying data_file.txt from /tmp to /root dir
+      copy: src="/tmp/data_file.txt" dest="/root/" owner="ec2-user" group="root"

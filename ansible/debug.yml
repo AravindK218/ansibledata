@@ -1,0 +1,13 @@
+---
+- name: working with script module
+  hosts: client1
+  tasks:
+    - name: using script module
+      script: ./for.py
+      register: output
+
+    - debug: msg="{{output}}"
+      
+    - debug: msg="{{output.stdout_lines}}"
+    
+    - debug: msg="{{output.stdout_lines[2]}}"

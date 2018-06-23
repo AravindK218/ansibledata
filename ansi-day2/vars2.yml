@@ -1,0 +1,9 @@
+---
+- name: Working with var and mydata
+  hosts: ansi-server
+  vars_files:
+    - group.yml
+
+  tasks: printing the content of my name variable
+    - name: performing for group level
+      command: echo"{{mygroup}}"
