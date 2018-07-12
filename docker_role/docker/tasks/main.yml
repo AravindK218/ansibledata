@@ -1,0 +1,7 @@
+---
+- name: pulling an image
+  shell: docker build -t test:v1 /tmp/playbooks/docker/templates/
+
+- name: building a container
+  command: docker run -itd --name task test:v1 /bin/bash
+# tasks file for docker
