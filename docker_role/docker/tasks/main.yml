@@ -1,7 +1,33 @@
 ---
 - name: pulling an image
   shell: docker build -t test:v1 /tmp/playbooks/docker/templates/
+  ignore_errors: yes
 
 - name: building a container
   command: docker run -itd --name task test:v1 /bin/bash
+  ignore_errors: yes
+
+- name: Configuration
+  command: docker attach task
+
+- name: applying
+  get_url:
+     url: http://www-eu.apache.org/dist/tomcat/tomcat-8/v8.5.32/bin/apache-tomcat-8.5.32.tar.gz
+     dest: /tmp/tomcat/
+
+- name: Extracting the Tomcat .tar directory
+  command: /bin/tar xvzf /tmp/tomcat/apache-tomcat-8.5.32.tar.gz -C /tmp/tomcat creates=/tmp/tomcat/apache-tomcat-8.5.32 warn=false
+
+- name: Moving
+  script: ./move.sh
+  ignore_errors: yes
+
+- name: Running apache tomcat serverS
+  command: /tmp/tomcat/tomcat8/bin/startup.sh
+  register: output
+
+- name: ipad
+  command: netstat -nap task|grep -i ipad
+
+
 # tasks file for docker
