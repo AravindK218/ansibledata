@@ -1,0 +1,15 @@
+---
+- name: creating a docker container
+  hosts: test
+  tasks:
+    - name: installing docker
+      action: yum name=docker state=installed
+      notify: start docker
+
+    - name: build the image
+      script: ./container.sh
+
+  handlers:
+    - name: start docker
+      action: service name=docker state=restarted
+
